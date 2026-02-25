@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>أكاديمية دار القرآن</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="logo.png" type="image/png">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root { --primary-gold: #c99a00; --light-gold: #f9c600; --dark-bg: #1a1a1a; --soft-white: #fffdf5; }
+    body { margin: 0; padding-bottom: 80px; font-family: 'Cairo', sans-serif; background-color: var(--soft-white); color: #333; }
+    .hero-card { background: linear-gradient(135deg, var(--dark-bg), #000); padding: 80px 20px; border-bottom-left-radius: 60px; border-bottom-right-radius: 60px; text-align: center; color: var(--light-gold); }
+    .desktop-nav-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; max-width: 900px; margin: -40px auto 40px; padding: 0 20px; }
+    .nav-card { background: white; padding: 25px; border-radius: 20px; text-align: center; box-shadow: 0 10px 25px rgba(0,0,0,0.1); cursor: pointer; transition: 0.3s; border-bottom: 5px solid var(--primary-gold); text-decoration: none; color: inherit; }
+    .nav-card:hover { transform: translateY(-5px); }
+    .nav-card.active { background: var(--primary-gold); color: white; }
+    .card { background: #fff; margin: 20px auto; padding: 30px 20px; border-radius: 25px; box-shadow: 0 8px 20px rgba(0,0,0,0.06); border-right: 5px solid var(--primary-gold); text-align: right; max-width: 700px; }
+    .bottom-nav { position: fixed; bottom: 0; left: 0; right: 0; background: var(--dark-bg); display: flex; justify-content: space-around; padding: 12px 0; z-index: 1000; border-top: 3px solid var(--primary-gold); }
+    .nav-item { color: #777; font-size: 13px; text-align: center; text-decoration: none; flex: 1; }
+    .nav-item.active { color: var(--light-gold); }
+    .nav-item span { display: block; font-size: 24px; }
+    @media (max-width: 768px) { .desktop-nav-grid { display: none; } }
+    footer { text-align: center; padding: 20px; font-size: 13px; color: #888; }
+  </style>
+</head>
+<body>
+  <div class="hero-card">
+    <h1>أكاديمية دار القرآن</h1>
+    <p>أهلاً بك في رحلتك لتعلم أصول دينك</p>
+  </div>
+  <div class="desktop-nav-grid">
+    <a href="index.html" class="nav-card active"><span>🏠</span><h4>الرئيسية</h4></a>
+    <a href="join.html" class="nav-card"><span>💰</span><h4>الاشتراك</h4></a>
+    <a href="about.html" class="nav-card"><span>✨</span><h4>من نحن</h4></a>
+    <a href="contact.html" class="nav-card"><span>📞</span><h4>تواصل</h4></a>
+  </div>
+  <div class="card">
+    <h3 style="color: var(--primary-gold);">لماذا نتعلم في الأكاديمية؟</h3>
+    <p>تعلم العلوم الشرعية يجعلك تفهم دينك بشكل أعمق، ويؤهلك لتعليمه للآخرين بأسلوب صحيح ومنضبط.</p>
+  </div>
+  <nav class="bottom-nav">
+    <a href="index.html" class="nav-item active"><span>🏠</span>الرئيسية</a>
+    <a href="join.html" class="nav-item"><span>💰</span>الاشتراك</a>
+    <a href="about.html" class="nav-item"><span>✨</span>من نحن</a>
+    <a href="contact.html" class="nav-item"><span>📞</span>تواصل</a>
+  </nav>
+  <footer>©2026 Developed by: Anas Magdy</footer>
+</body>
+</html>
