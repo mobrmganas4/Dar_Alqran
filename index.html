@@ -2,48 +2,107 @@
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
-  <title>أكاديمية دار القرآن</title>
+  <title>أكاديمية دار القرآن - تعليم الفقه</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="description" content="مرحبا بكم في اكاديمية دار القرآن لتعليم الفقه، نسعى لتقديم العلم الشرعي المنضبط بأسلوب ميسر.">
+  <meta name="keywords" content="فقه، دار القرآن، اكادمية، فقه دينك، دين اسلام، ساره عاطف">
+  
   <link rel="icon" href="logo.png" type="image/png">
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+  
   <style>
-    :root { --primary-gold: #c99a00; --light-gold: #f9c600; --dark-bg: #1a1a1a; --soft-white: #fffdf5; }
-    body { margin: 0; padding-bottom: 80px; font-family: 'Cairo', sans-serif; background-color: var(--soft-white); color: #333; }
-    .hero-card { background: linear-gradient(135deg, var(--dark-bg), #000); padding: 80px 20px; border-bottom-left-radius: 60px; border-bottom-right-radius: 60px; text-align: center; color: var(--light-gold); }
-    .desktop-nav-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; max-width: 900px; margin: -40px auto 40px; padding: 0 20px; }
-    .nav-card { background: white; padding: 25px; border-radius: 20px; text-align: center; box-shadow: 0 10px 25px rgba(0,0,0,0.1); cursor: pointer; transition: 0.3s; border-bottom: 5px solid var(--primary-gold); text-decoration: none; color: inherit; }
-    .nav-card:hover { transform: translateY(-5px); }
-    .nav-card.active { background: var(--primary-gold); color: white; }
-    .card { background: #fff; margin: 20px auto; padding: 30px 20px; border-radius: 25px; box-shadow: 0 8px 20px rgba(0,0,0,0.06); border-right: 5px solid var(--primary-gold); text-align: right; max-width: 700px; }
-    .bottom-nav { position: fixed; bottom: 0; left: 0; right: 0; background: var(--dark-bg); display: flex; justify-content: space-around; padding: 12px 0; z-index: 1000; border-top: 3px solid var(--primary-gold); }
-    .nav-item { color: #777; font-size: 13px; text-align: center; text-decoration: none; flex: 1; }
-    .nav-item.active { color: var(--light-gold); }
-    .nav-item span { display: block; font-size: 24px; }
-    @media (max-width: 768px) { .desktop-nav-grid { display: none; } }
-    footer { text-align: center; padding: 20px; font-size: 13px; color: #888; }
+    :root { --primary-gold: #c99a00; --dark-bg: #1a1a1a; }
+    body { margin: 0; font-family: 'Cairo', sans-serif; background-color: #ffffff; color: #333; display: flex; flex-direction: column; min-height: 100vh; }
+    
+    /* الهيدر الأسود */
+    .top-header {
+      background-color: var(--dark-bg);
+      color: white;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 3px solid var(--primary-gold);
+    }
+
+    .header-left { text-align: center; }
+    .header-left img { width: 60px; display: block; margin: 0 auto; }
+    .header-left span { font-size: 14px; color: var(--primary-gold); font-weight: bold; }
+
+    .header-right { display: flex; gap: 20px; }
+    .header-right a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      border-bottom: 2px solid var(--primary-gold);
+      padding-bottom: 2px;
+      font-size: 16px;
+    }
+
+    /* المحتوى الأبيض */
+    .main-content {
+      text-align: center;
+      padding: 80px 20px;
+      background-color: #ffffff;
+      flex: 1; /* عشان الفوتر يفضل تحت لو الصفحة فاضية */
+    }
+    .main-content h1 {
+      color: var(--primary-gold);
+      font-size: clamp(28px, 5vw, 45px);
+      font-weight: 900;
+      margin-bottom: 10px;
+    }
+    .sub-description {
+      font-size: 22px;
+      color: #555;
+      margin-bottom: 30px;
+      font-weight: 700;
+    }
+
+    /* الفوتر الأسود الجديد */
+    footer {
+      text-align: center;
+      padding: 30px;
+      background-color: var(--dark-bg); /* خلفية سوداء */
+      color: #ffffff; /* كلام أبيض */
+      border-top: 3px solid var(--primary-gold); /* خط ذهبي من فوق */
+      font-size: 15px;
+      font-weight: bold;
+    }
+
+    @media (max-width: 600px) {
+      .top-header { flex-direction: column; gap: 20px; }
+    }
   </style>
 </head>
 <body>
-  <div class="hero-card">
-    <h1>أكاديمية دار القرآن</h1>
-    <p>أهلاً بك في رحلتك لتعلم أصول دينك</p>
-  </div>
-  <div class="desktop-nav-grid">
-    <a href="index.html" class="nav-card active"><span>🏠</span><h4>الرئيسية</h4></a>
-    <a href="join.html" class="nav-card"><span>💰</span><h4>الاشتراك</h4></a>
-    <a href="about.html" class="nav-card"><span>✨</span><h4>من نحن</h4></a>
-    <a href="contact.html" class="nav-card"><span>📞</span><h4>تواصل</h4></a>
-  </div>
-  <div class="card">
-    <h3 style="color: var(--primary-gold);">لماذا نتعلم في الأكاديمية؟</h3>
-    <p>تعلم العلوم الشرعية يجعلك تفهم دينك بشكل أعمق، ويؤهلك لتعليمه للآخرين بأسلوب صحيح ومنضبط.</p>
-  </div>
-  <nav class="bottom-nav">
-    <a href="index.html" class="nav-item active"><span>🏠</span>الرئيسية</a>
-    <a href="join.html" class="nav-item"><span>💰</span>الاشتراك</a>
-    <a href="about.html" class="nav-item"><span>✨</span>من نحن</a>
-    <a href="contact.html" class="nav-item"><span>📞</span>تواصل</a>
-  </nav>
-  <footer>©2026 Developed by: Anas Magdy</footer>
+
+  <header class="top-header">
+    <div class="header-right">
+      <a href="join.html">انضمام للحلقة</a>
+      <a href="about.html">من نحن</a>
+      <a href="contact.html">تواصل معنا</a>
+    </div>
+    
+    <div class="header-left">
+      <img src="logo.png" alt="Logo">
+      <span>أكاديمية دار القرآن</span>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <h1>مرحبا بكم في اكاديمية دار القرآن</h1>
+    <p class="sub-description">لتعليم الفقه</p>
+    
+    <p style="font-size: 18px; max-width: 700px; margin: 0 auto; line-height: 1.8; color: #666;">
+      تعلم أصول دينك وفقهه بأسلوب ميسر ومنضبط، لنبني معاً وعياً إسلامياً صحيحاً.
+    </p>
+  </main>
+
+  <footer>
+    &copy; جميع الحقوق محفوظة - دار القرآن 2026
+  </footer>
+
 </body>
 </html>
