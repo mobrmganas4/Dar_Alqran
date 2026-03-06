@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>أكاديمية دار القرآن - تعليم الفقه</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="description" content="مرحبا بكم في اكاديمية دار القرآن لتعليم الفقه، نسعى لتقديم العلم الشرعي المنضبط بأسلوب ميسر.">
+  <meta name="keywords" content="فقه، دار القرآن، اكادمية، فقه دينك، دين اسلام، ساره عاطف">
+<link rel="icon" type="image/png" href="logo512.png">
+
+<link rel="apple-touch-icon" href="logo512.png">
+
+<link rel="manifest" href="manifest.json">
+
+ 
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+  
+  <style>
+    :root { --primary-gold: #c99a00; --dark-bg: #1a1a1a; }
+    body { margin: 0; font-family: 'Cairo', sans-serif; background-color: #ffffff; color: #333; display: flex; flex-direction: column; min-height: 100vh; }
+    
+    /* الهيدر الأسود */
+    .top-header {
+      background-color: var(--dark-bg);
+      color: white;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 3px solid var(--primary-gold);
+    }
+
+    .header-left { text-align: center; }
+    .header-left img { width: 60px; display: block; margin: 0 auto; }
+    .header-left span { font-size: 14px; color: var(--primary-gold); font-weight: bold; }
+
+    .header-right { display: flex; gap: 20px; }
+    .header-right a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      border-bottom: 2px solid var(--primary-gold);
+      padding-bottom: 2px;
+      font-size: 16px;
+    }
+
+    /* المحتوى الأبيض */
+    .main-content {
+      text-align: center;
+      padding: 80px 20px;
+      background-color: #ffffff;
+      flex: 1; /* عشان الفوتر يفضل تحت لو الصفحة فاضية */
+    }
+    .main-content h1 {
+      color: var(--primary-gold);
+      font-size: clamp(28px, 5vw, 45px);
+      font-weight: 900;
+      margin-bottom: 10px;
+    }
+    .sub-description {
+      font-size: 22px;
+      color: #555;
+      margin-bottom: 30px;
+      font-weight: 700;
+    }
+
+    /* الفوتر الأسود الجديد */
+    footer {
+      text-align: center;
+      padding: 30px;
+      background-color: var(--dark-bg); /* خلفية سوداء */
+      color: #ffffff; /* كلام أبيض */
+      border-top: 3px solid var(--primary-gold); /* خط ذهبي من فوق */
+      font-size: 15px;
+      font-weight: bold;
+    }
+
+    @media (max-width: 600px) {
+      .top-header { flex-direction: column; gap: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="top-header">
+    <div class="header-right">
+      <a href="join.html">انضمام للحلقة</a>
+      <a href="about.html">من نحن</a>
+      <a href="contact.html">تواصل معنا</a>
+    </div>
+    
+    <div class="header-left">
+      <img src="logo.png" alt="Logo">
+      <span>أكاديمية دار القرآن</span>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <h1>مرحبا بكم في اكاديمية دار القرآن</h1>
+    <p class="sub-description">لتعليم الفقه</p>
+    
+    <p style="font-size: 18px; max-width: 700px; margin: 0 auto; line-height: 1.8; color: #666;">
+      تعلم أصول دينك وفقهه بأسلوب ميسر ومنضبط، لنبني معاً وعياً إسلامياً صحيحاً.
+    </p>
+  </main>
+
+  <footer>
+    &copy; جميع الحقوق محفوظة - دار القرآن 2026
+  </footer>
+
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('sw.js')
+            .then(reg => console.log('Service Worker registered'))
+            .catch(err => console.log('Service Worker failed', err));
+        });
+      }
+    </script>
+
+
+</body>
+</html>

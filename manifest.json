@@ -1,0 +1,24 @@
+{
+  "name": "Dar Al-Quran Academy",
+  "short_name": "Dar Al-Quran",
+  "description": "Academy for Quranic Studies",
+  "start_url": "index.html",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#ffffff",
+  "theme_color": "#0d1b3e",
+  "icons": [
+    {
+      "src": "logo512.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "logo512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
