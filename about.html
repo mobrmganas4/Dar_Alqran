@@ -2,56 +2,113 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <title>من نحن - دار القرآن</title>
+    <title>من نحن - أكاديمية دار القرآن</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="logo512.png">
     <link rel="manifest" href="manifest.json">
     <style>
-        :root { --primary-gold: #c99a00; --dark-bg: #1a1a1a; }
-        body { font-family: 'Cairo', sans-serif; background-color: #fffdf5; margin: 0; text-align: center; }
+        :root { --primary-gold: #c99a00; --dark-bg: #1a1a1a; --soft-gold: #fcf4dd; }
+        body { font-family: 'Cairo', sans-serif; background-color: #fafafa; margin: 0; text-align: center; color: #333; }
         
-        /* القوائم الذكية */
+        /* القوائم الذكية (نفس نظام index و Join) */
         .mobile-nav, .desktop-sidebar { display: none; }
-
         @media (max-width: 600px) {
             .mobile-nav { display: flex; position: fixed; bottom: 0; left: 0; right: 0; background: var(--dark-bg); height: 65px; justify-content: space-around; align-items: center; border-top: 2px solid var(--primary-gold); z-index: 1000; }
             .mobile-nav a { color: white; text-decoration: none; font-size: 12px; display: flex; flex-direction: column; align-items: center; }
             body { padding-bottom: 80px; }
         }
-
         @media (min-width: 601px) {
-            .desktop-sidebar { display: block; position: fixed; left: 0; top: 0; bottom: 0; width: 220px; background: var(--dark-bg); border-right: 4px solid var(--primary-gold); padding-top: 40px; z-index: 1000; }
+            .desktop-sidebar { display: block; position: fixed; left: 0; top: 0; bottom: 0; width: 240px; background: var(--dark-bg); border-right: 4px solid var(--primary-gold); padding-top: 40px; z-index: 1000; }
             .desktop-sidebar a { display: block; color: white; padding: 15px 25px; text-decoration: none; border-bottom: 1px solid #333; text-align: right; }
-            .desktop-sidebar a:hover { background: var(--primary-gold); color: black; }
-            body { margin-left: 220px; }
+            body { margin-left: 240px; }
         }
 
-        .header-banner { background: var(--dark-bg); color: var(--primary-gold); padding: 40px; border-radius: 0 0 50px 50px; margin-bottom: 30px; }
-        .info-card { background: white; padding: 30px; border-radius: 25px; max-width: 500px; margin: 20px auto; box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
+        /* تصميم الهيدر (Header Section) */
+        .about-header {
+            background: linear-gradient(135deg, #1a1a1a 0%, #333 100%);
+            padding: 60px 20px;
+            color: var(--primary-gold);
+            border-bottom: 5px solid var(--primary-gold);
+            clip-path: ellipse(150% 100% at 50% 0%); /* حركة انحناء فخمة */
+        }
+        .about-header img { 
+            width: 140px; 
+            filter: drop-shadow(0 0 15px rgba(201, 154, 0, 0.5));
+            margin-bottom: 15px;
+        }
+
+        /* كروت التفاصيل */
+        .content-container { padding: 40px 20px; max-width: 800px; margin: auto; }
+        
+        .profile-card {
+            background: white; border-radius: 30px; padding: 40px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+            margin-top: -80px; /* تداخل الكارت مع الهيدر */
+            position: relative; z-index: 10;
+        }
+        .teacher-name { font-size: 32px; font-weight: 900; color: var(--dark-bg); margin: 10px 0; }
+        .teacher-title { color: var(--primary-gold); font-weight: bold; font-size: 18px; margin-bottom: 20px; display: block; }
+
+        .about-text { line-height: 2; color: #555; font-size: 17px; text-align: justify; }
+
+        .vision-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px; margin-top: 40px;
+        }
+        .v-card {
+            background: var(--soft-gold); padding: 20px; border-radius: 20px;
+            border: 1px solid #e0c572;
+        }
+        .v-card h4 { margin: 0 0 10px; color: #846a14; }
     </style>
 </head>
 <body>
+
     <nav class="mobile-nav">
         <a href="index.html">🏠<span>الرئيسية</span></a>
         <a href="Join.html">🎯<span>الاشتراك</span></a>
         <a href="about.html" style="color: var(--primary-gold);">📖<span>من نحن</span></a>
         <a href="contact.html">📞<span>تواصل</span></a>
     </nav>
+
     <nav class="desktop-sidebar">
-        <div style="text-align: center; margin-bottom: 20px;"><img src="logo512.png" width="70"></div>
+        <div style="text-align: center; margin-bottom: 20px;"><img src="logo512.png" width="80"></div>
         <a href="index.html">الصفحة الرئيسية</a>
         <a href="Join.html">باقات الاشتراك</a>
         <a href="about.html" style="background: var(--primary-gold); color: black;">عن الأكاديمية</a>
         <a href="contact.html">تواصل معنا</a>
     </nav>
 
-    <div class="header-banner"><h1>عن الأكاديمية</h1></div>
-    <div class="info-card">
-        <img src="logo512.png" style="width: 100px; margin-bottom: 15px;">
-        <h2 style="color: var(--primary-gold); margin-top: 0;">ساره عاطف</h2>
-        <p><b>أستاذة بالأكاديمية</b></p>
-        <p style="line-height: 1.8; color: #555;">أكاديمية دار القرآن متخصصة في تبسيط العلوم الشرعية بأسلوب عصري يجمع بين الأصالة والتجديد، لنسهل على الجميع فهم الدين الصحيح.</p>
+    <header class="about-header">
+        <img src="logo4.png" alt="Logo">
+        <h1>من نحن</h1>
+    </header>
+
+    <div class="content-container">
+        <div class="profile-card">
+            <span class="teacher-title">أكاديمية دار القرآن</span>
+            <h2 class="teacher-name">أ. ساره عاطف</h2>
+            <p class="about-text">
+                أكاديمية دار القرآن هي صرح تعليمي يهدف إلى تبسيط العلوم الشرعية ونشر الفقه المنضبط بأسلوب عصري يواكب متطلبات العصر. نحن نؤمن أن العلم الشرعي هو الأساس لبناء شخصية مسلمة واعية ومستنيرة، لذلك نسخر كافة الوسائل التقنية لتسهيل وصول هذا العلم إلى كل بيت.
+            </p>
+
+            <div class="vision-grid">
+                <div class="v-card">
+                    <h4>رسالتنا</h4>
+                    <p style="font-size: 14px; margin: 0;">نشر العلم الشرعي الصحيح بأسلوب ميسر للجميع.</p>
+                </div>
+                <div class="v-card">
+                    <h4>رؤيتنا</h4>
+                    <p style="font-size: 14px; margin: 0;">أن نكون الوجهة الأولى لطالب العلم المبتدئ في العالم الإسلامي.</p>
+                </div>
+            </div>
+        </div>
     </div>
+
+    <footer style="margin-top: 50px; padding: 30px; color: #999; font-size: 14px;">
+        جميع الحقوق محفوظة - أكاديمية دار القرآن 2026
+    </footer>
+
 </body>
 </html>
