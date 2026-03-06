@@ -10,7 +10,7 @@
         :root { --primary-gold: #c99a00; --dark-bg: #1a1a1a; }
         body { margin: 0; font-family: 'Cairo', sans-serif; background-color: #fafafa; color: #333; overflow-x: hidden; }
         
-        /* زرار التثبيت الذكي */
+        /* زرار التثبيت الذكي - يظهر في المتصفح فقط */
         #install-banner {
             display: none; position: fixed; top: 15px; left: 50%; transform: translateX(-50%);
             background: var(--dark-bg); color: white; padding: 12px 25px; border-radius: 50px;
@@ -27,7 +27,8 @@
         }
         @media (min-width: 601px) {
             .desktop-sidebar { display: block; position: fixed; left: 0; top: 0; bottom: 0; width: 240px; background: var(--dark-bg); border-right: 4px solid var(--primary-gold); padding-top: 40px; z-index: 1000; }
-            .desktop-sidebar a { display: block; color: white; padding: 15px 25px; text-decoration: none; border-bottom: 1px solid #333; text-align: right; }
+            .desktop-sidebar a { display: block; color: white; padding: 15px 25px; text-decoration: none; border-bottom: 1px solid #333; text-align: right; transition: 0.3s; }
+            .desktop-sidebar a:hover { background: var(--primary-gold); color: black; padding-right: 35px; }
             body { margin-left: 240px; }
         }
 
@@ -38,9 +39,10 @@
             height: 400px; display: flex; flex-direction: column; justify-content: center; align-items: center; color: white; text-align: center; padding: 20px;
         }
         .hero img { width: 90px; margin-bottom: 15px; filter: drop-shadow(0 0 10px var(--primary-gold)); }
-        .hero h1 { font-size: 35px; margin: 0; color: var(--primary-gold); }
+        .hero h1 { font-size: 35px; margin: 0; color: var(--primary-gold); font-weight: 900; }
+        .hero p { font-size: 18px; margin: 10px 0 20px; }
 
-        /* الكروت (The Cards) */
+        /* قسم الكروت (Cards) */
         .features-container {
             display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 20px; padding: 40px 20px; max-width: 1100px; margin: auto;
@@ -54,13 +56,17 @@
         .feature-card:hover { transform: translateY(-10px); }
         .feature-card h3 { color: var(--dark-bg); font-size: 22px; margin-bottom: 10px; }
         .feature-card p { color: #666; line-height: 1.6; font-size: 15px; }
-        .icon-box { font-size: 40px; margin-bottom: 15px; }
+        .icon-box { font-size: 45px; margin-bottom: 15px; }
 
         .cta-btn {
-            background: var(--primary-gold); color: black; padding: 15px 40px;
+            background: var(--primary-gold); color: black; padding: 15px 45px;
             border-radius: 50px; text-decoration: none; font-weight: 900;
-            display: inline-block; margin-top: 20px; box-shadow: 0 5px 15px rgba(201,154,0,0.3);
+            display: inline-block; margin-top: 10px; box-shadow: 0 5px 15px rgba(201,154,0,0.4);
+            transition: 0.3s;
         }
+        .cta-btn:hover { background: white; transform: scale(1.05); }
+
+        footer { background: #1a1a1a; color: #777; padding: 30px; text-align: center; font-size: 14px; margin-top: 20px; }
     </style>
 </head>
 <body>
@@ -84,8 +90,8 @@
 
     <header class="hero">
         <img src="logo512.png" alt="Logo">
-        <h1>دار القرآن</h1>
-        <p>منصة تعليمية متخصصة في الفقه والعلوم الشرعية</p>
+        <h1>أكاديمية دار القرآن</h1>
+        <p>رحلتك الميسرة لتعلم الفقه والعلوم الشرعية</p>
         <a href="Join.html" class="cta-btn">سجل اشتراكك الآن</a>
     </header>
 
@@ -93,21 +99,21 @@
         <div class="feature-card">
             <div class="icon-box">🕌</div>
             <h3>تعلم الفقه</h3>
-            <p>دروس مبسطة في الفقه الميسر تناسب جميع المستويات، بأسلوب عصري ومنظم.</p>
+            <p>منهج علمي منضبط بأسلوب سهل يناسب المبتدئين، لنبني وعياً شرعياً صحيحاً.</p>
         </div>
         <div class="feature-card">
             <div class="icon-box">📱</div>
-            <h3>تطبيق ذكي</h3>
-            <p>يمكنك تحميل الموقع كتطبيق على موبايلك ومتابعة دروسك في أي وقت بدون تشتت.</p>
+            <h3>تطبيق تفاعلي</h3>
+            <p>ثبت الموقع على موبايلك لتصل لدروسك بضغطة واحدة وبدون الحاجة لفتح المتصفح.</p>
         </div>
         <div class="feature-card">
-            <div class="icon-box">🏅</div>
-            <h3>شهادات معتمدة</h3>
-            <p>تحصل على شهادة إتمام عند اجتيازك اختبارات الدورة بنجاح لتشجيعك على الاستمرار.</p>
+            <div class="icon-box">📜</div>
+            <h3>شهادات إنجاز</h3>
+            <p>نمنح شهادات تقديرية للمجتهدين بعد اجتياز الاختبارات الشهرية بنجاح.</p>
         </div>
     </section>
 
-    <footer style="background: #1a1a1a; color: #777; padding: 30px; text-align: center; font-size: 14px;">
+    <footer>
         &copy; 2026 أكاديمية دار القرآن - جميع الحقوق محفوظة
     </footer>
 
@@ -115,21 +121,37 @@
         let deferredPrompt;
         const installBanner = document.getElementById('install-banner');
 
+        // فحص هل المستخدم فاتح من جوه التطبيق ولا من المتصفح
+        const isAppInstalled = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone;
+
         window.addEventListener('beforeinstallprompt', (e) => {
+            // منع الرسالة التلقائية
             e.preventDefault();
             deferredPrompt = e;
-            installBanner.style.display = 'block';
+
+            // إظهار الزرار فقط لو المستخدم مش فاتح التطبيق
+            if (!isAppInstalled) {
+                installBanner.style.display = 'block';
+            }
         });
 
         installBanner.addEventListener('click', async () => {
             if (deferredPrompt) {
                 deferredPrompt.prompt();
                 const { outcome } = await deferredPrompt.userChoice;
-                if (outcome === 'accepted') { installBanner.style.display = 'none'; }
+                if (outcome === 'accepted') {
+                    installBanner.style.display = 'none';
+                }
                 deferredPrompt = null;
             }
         });
 
+        // إخفاء الزرار لو تم التثبيت
+        window.addEventListener('appinstalled', () => {
+            installBanner.style.display = 'none';
+        });
+
+        // تسجيل السيرفس وركر
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
                 navigator.serviceWorker.register('sw.js');
