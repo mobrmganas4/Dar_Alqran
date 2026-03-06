@@ -2,53 +2,127 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <title>الاشتراك - دار القرآن</title>
+    <title>باقات الاشتراك - دار القرآن</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="logo512.png">
+    <link rel="manifest" href="manifest.json">
     <style>
-        :root { --primary-gold: #c99a00; --dark-bg: #1a1a1a; }
-        body { font-family: 'Cairo', sans-serif; background-color: #fffdf5; margin: 0; padding-top: 20px; text-align: center; }
+        :root { --primary-gold: #c99a00; --dark-bg: #1a1a1a; --offer-red: #e74c3c; }
+        body { font-family: 'Cairo', sans-serif; background-color: #f4f4f4; margin: 0; text-align: center; color: #333; }
         
-        /* نفس ستايل القوائم */
+        /* القوائم الذكية */
         .mobile-nav, .desktop-sidebar { display: none; }
         @media (max-width: 600px) {
             .mobile-nav { display: flex; position: fixed; bottom: 0; left: 0; right: 0; background: var(--dark-bg); height: 65px; justify-content: space-around; align-items: center; border-top: 2px solid var(--primary-gold); z-index: 1000; }
             .mobile-nav a { color: white; text-decoration: none; font-size: 12px; display: flex; flex-direction: column; align-items: center; }
-            body { padding-bottom: 70px; }
+            body { padding-bottom: 80px; }
         }
         @media (min-width: 601px) {
-            .desktop-sidebar { display: block; position: fixed; left: 0; top: 0; bottom: 0; width: 220px; background: var(--dark-bg); border-right: 4px solid var(--primary-gold); padding-top: 40px; z-index: 1000; }
+            .desktop-sidebar { display: block; position: fixed; left: 0; top: 0; bottom: 0; width: 240px; background: var(--dark-bg); border-right: 4px solid var(--primary-gold); padding-top: 40px; z-index: 1000; }
             .desktop-sidebar a { display: block; color: white; padding: 15px 25px; text-decoration: none; border-bottom: 1px solid #333; text-align: right; }
-            body { margin-left: 220px; }
+            body { margin-left: 240px; }
         }
 
-        .card { background: #fff; padding: 30px; border-radius: 25px; box-shadow: 0 8px 20px rgba(0,0,0,0.06); max-width: 450px; margin: 20px auto; }
-        .btn { display: block; padding: 16px; border-radius: 50px; margin-top: 15px; font-weight: bold; text-decoration: none; color: white; }
-        .btn-ussd { background: #d9534f; }
-        .btn-telegram { background: #0088cc; }
+        /* كارت الاشتراك */
+        .join-container { padding: 40px 20px; }
+        .pricing-card {
+            background: white; border-radius: 30px; box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            max-width: 450px; margin: auto; overflow: hidden; border: 1px solid #eee;
+        }
+        .card-header { background: var(--dark-bg); color: var(--primary-gold); padding: 25px; font-size: 22px; font-weight: 900; }
+        .price-section { padding: 30px; background: #fffdf5; }
+        .old-price { text-decoration: line-through; color: #999; font-size: 20px; display: block; }
+        .current-price { color: var(--offer-red); font-size: 55px; font-weight: 900; margin: 5px 0; }
+        
+        .offer-timer {
+            background: #fff0f0; color: #c0392b; padding: 12px; border-radius: 15px;
+            font-weight: bold; margin: 15px 20px; border: 1px dashed #e74c3c;
+        }
+
+        .action-buttons { padding: 20px 30px 40px; }
+        .btn {
+            display: flex; align-items: center; justify-content: center; gap: 10px;
+            padding: 18px; border-radius: 50px; margin-bottom: 15px;
+            text-decoration: none; font-weight: 900; font-size: 16px; transition: 0.3s;
+        }
+        .btn-cash { background: var(--offer-red); color: white; box-shadow: 0 5px 15px rgba(231, 76, 60, 0.3); }
+        .btn-confirm { background: #0088cc; color: white; box-shadow: 0 5px 15px rgba(0, 136, 204, 0.3); }
+        .btn:hover { transform: translateY(-3px); filter: brightness(1.1); }
     </style>
 </head>
 <body>
+
     <nav class="mobile-nav">
         <a href="index.html">🏠<span>الرئيسية</span></a>
-        <a href="Join.html">🎯<span>الاشتراك</span></a>
+        <a href="Join.html" style="color: var(--primary-gold);">🎯<span>الاشتراك</span></a>
         <a href="about.html">📖<span>من نحن</span></a>
         <a href="contact.html">📞<span>تواصل</span></a>
     </nav>
+
     <nav class="desktop-sidebar">
-        <div style="text-align: center; margin-bottom: 20px;"><img src="logo512.png" width="70"></div>
+        <div style="text-align: center; margin-bottom: 20px;"><img src="logo512.png" width="80"></div>
         <a href="index.html">الصفحة الرئيسية</a>
-        <a href="Join.html">باقات الاشتراك</a>
-        <a href="about.html">من نحن</a>
+        <a href="Join.html" style="background: var(--primary-gold); color: black;">باقات الاشتراك</a>
+        <a href="about.html">عن الأكاديمية</a>
         <a href="contact.html">تواصل معنا</a>
     </nav>
 
-    <h2 style="color: var(--primary-gold);">باقات الاشتراك</h2>
-    <div class="card">
-        <h3>دورة الفقه الشهرية</h3>
-        <h1 style="color: #d9534f; font-size: 45px;">150 ج</h1>
-        <a href="tel:*9*7*01124313665*100%23" class="btn btn-ussd">اضغط لتحويل الاشتراك (كاش)</a>
-        <a href="https://t.me/+201124313665" class="btn btn-telegram">إرسال الإيصال</a>
+    <div class="join-container">
+        <h2 style="font-weight: 900; margin-bottom: 30px;">اختر خطة التعلم المناسبة</h2>
+
+        <div class="pricing-card">
+            <div class="card-header">دورة الفقه الميسر - شهر مارس</div>
+            
+            <div class="price-section">
+                <span class="old-price" id="old-price">السعر الأصلي: 150 جنيه</span>
+                <div class="current-price" id="current-price">100 جنيه</div>
+                <p style="color: #666; font-size: 14px;">اشتراك كامل لمدة شهر شامل الدروس والاختبارات</p>
+            </div>
+
+            <div id="offer-tag" class="offer-timer">⏳ جاري فحص العرض...</div>
+
+            <div class="action-buttons">
+                <a href="tel:*9*7*01124313665*100%23" class="btn btn-cash">
+                    💳 اضغط لتحويل الاشتراك (فودافون كاش)
+                </a>
+                <a href="https://t.me/+201124313665" class="btn btn-confirm">
+                    📱 أرسل صورة الإيصال لتفعيل حسابك
+                </a>
+            </div>
+        </div>
     </div>
+
+    <script>
+        function checkOffer() {
+            // التواريخ المحددة: من 6 مارس إلى 14 مارس 2026
+            const startDate = new Date("March 6, 2026 00:00:00");
+            const endDate = new Date("March 14, 2026 23:59:59");
+            const now = new Date();
+
+            const timerTag = document.getElementById('offer-tag');
+            const priceTag = document.getElementById('current-price');
+            const oldPriceTag = document.getElementById('old-price');
+
+            if (now < startDate) {
+                timerTag.innerHTML = "📅 ترقبوا! عرض خصم مارس يبدأ يوم 6 مارس";
+                timerTag.style.background = "#fff3cd"; timerTag.style.color = "#856404";
+                priceTag.innerText = "150 جنيه";
+                oldPriceTag.style.display = "none";
+            } else if (now >= startDate && now <= endDate) {
+                const diff = endDate - now;
+                const days = Math.ceil(diff / (1000 * 60 * 60 * 24));
+                timerTag.innerHTML = "🔥 عرض محدود! متبقي " + days + " أيام على انتهاء الخصم";
+                priceTag.innerText = "100 جنيه";
+                oldPriceTag.style.display = "block";
+            } else {
+                timerTag.innerHTML = "⚠️ انتهى عرض الخصم الحالي";
+                timerTag.style.background = "#eee"; timerTag.style.color = "#777";
+                priceTag.innerText = "150 جنيه";
+                oldPriceTag.style.display = "none";
+            }
+        }
+        window.onload = checkOffer;
+    </script>
 </body>
 </html>
