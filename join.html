@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>الاشتراك - دار القرآن</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root { --primary-gold: #c99a00; --dark-bg: #1a1a1a; }
+        body { font-family: 'Cairo', sans-serif; background-color: #fffdf5; margin: 0; padding-top: 20px; text-align: center; }
+        
+        /* نفس ستايل القوائم */
+        .mobile-nav, .desktop-sidebar { display: none; }
+        @media (max-width: 600px) {
+            .mobile-nav { display: flex; position: fixed; bottom: 0; left: 0; right: 0; background: var(--dark-bg); height: 65px; justify-content: space-around; align-items: center; border-top: 2px solid var(--primary-gold); z-index: 1000; }
+            .mobile-nav a { color: white; text-decoration: none; font-size: 12px; display: flex; flex-direction: column; align-items: center; }
+            body { padding-bottom: 70px; }
+        }
+        @media (min-width: 601px) {
+            .desktop-sidebar { display: block; position: fixed; left: 0; top: 0; bottom: 0; width: 220px; background: var(--dark-bg); border-right: 4px solid var(--primary-gold); padding-top: 40px; z-index: 1000; }
+            .desktop-sidebar a { display: block; color: white; padding: 15px 25px; text-decoration: none; border-bottom: 1px solid #333; text-align: right; }
+            body { margin-left: 220px; }
+        }
+
+        .card { background: #fff; padding: 30px; border-radius: 25px; box-shadow: 0 8px 20px rgba(0,0,0,0.06); max-width: 450px; margin: 20px auto; }
+        .btn { display: block; padding: 16px; border-radius: 50px; margin-top: 15px; font-weight: bold; text-decoration: none; color: white; }
+        .btn-ussd { background: #d9534f; }
+        .btn-telegram { background: #0088cc; }
+    </style>
+</head>
+<body>
+    <nav class="mobile-nav">
+        <a href="index.html">🏠<span>الرئيسية</span></a>
+        <a href="Join.html">🎯<span>الاشتراك</span></a>
+        <a href="about.html">📖<span>من نحن</span></a>
+        <a href="contact.html">📞<span>تواصل</span></a>
+    </nav>
+    <nav class="desktop-sidebar">
+        <div style="text-align: center; margin-bottom: 20px;"><img src="logo512.png" width="70"></div>
+        <a href="index.html">الصفحة الرئيسية</a>
+        <a href="Join.html">باقات الاشتراك</a>
+        <a href="about.html">من نحن</a>
+        <a href="contact.html">تواصل معنا</a>
+    </nav>
+
+    <h2 style="color: var(--primary-gold);">باقات الاشتراك</h2>
+    <div class="card">
+        <h3>دورة الفقه الشهرية</h3>
+        <h1 style="color: #d9534f; font-size: 45px;">150 ج</h1>
+        <a href="tel:*9*7*01124313665*100%23" class="btn btn-ussd">اضغط لتحويل الاشتراك (كاش)</a>
+        <a href="https://t.me/+201124313665" class="btn btn-telegram">إرسال الإيصال</a>
+    </div>
+</body>
+</html>

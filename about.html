@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>من نحن - دار القرآن</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="logo512.png">
+    <link rel="manifest" href="manifest.json">
+    <style>
+        :root { --primary-gold: #c99a00; --dark-bg: #1a1a1a; }
+        body { font-family: 'Cairo', sans-serif; background-color: #fffdf5; margin: 0; text-align: center; }
+        
+        /* القوائم الذكية */
+        .mobile-nav, .desktop-sidebar { display: none; }
+
+        @media (max-width: 600px) {
+            .mobile-nav { display: flex; position: fixed; bottom: 0; left: 0; right: 0; background: var(--dark-bg); height: 65px; justify-content: space-around; align-items: center; border-top: 2px solid var(--primary-gold); z-index: 1000; }
+            .mobile-nav a { color: white; text-decoration: none; font-size: 12px; display: flex; flex-direction: column; align-items: center; }
+            body { padding-bottom: 80px; }
+        }
+
+        @media (min-width: 601px) {
+            .desktop-sidebar { display: block; position: fixed; left: 0; top: 0; bottom: 0; width: 220px; background: var(--dark-bg); border-right: 4px solid var(--primary-gold); padding-top: 40px; z-index: 1000; }
+            .desktop-sidebar a { display: block; color: white; padding: 15px 25px; text-decoration: none; border-bottom: 1px solid #333; text-align: right; }
+            .desktop-sidebar a:hover { background: var(--primary-gold); color: black; }
+            body { margin-left: 220px; }
+        }
+
+        .header-banner { background: var(--dark-bg); color: var(--primary-gold); padding: 40px; border-radius: 0 0 50px 50px; margin-bottom: 30px; }
+        .info-card { background: white; padding: 30px; border-radius: 25px; max-width: 500px; margin: 20px auto; box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
+    </style>
+</head>
+<body>
+    <nav class="mobile-nav">
+        <a href="index.html">🏠<span>الرئيسية</span></a>
+        <a href="Join.html">🎯<span>الاشتراك</span></a>
+        <a href="about.html" style="color: var(--primary-gold);">📖<span>من نحن</span></a>
+        <a href="contact.html">📞<span>تواصل</span></a>
+    </nav>
+    <nav class="desktop-sidebar">
+        <div style="text-align: center; margin-bottom: 20px;"><img src="logo512.png" width="70"></div>
+        <a href="index.html">الصفحة الرئيسية</a>
+        <a href="Join.html">باقات الاشتراك</a>
+        <a href="about.html" style="background: var(--primary-gold); color: black;">عن الأكاديمية</a>
+        <a href="contact.html">تواصل معنا</a>
+    </nav>
+
+    <div class="header-banner"><h1>عن الأكاديمية</h1></div>
+    <div class="info-card">
+        <img src="logo512.png" style="width: 100px; margin-bottom: 15px;">
+        <h2 style="color: var(--primary-gold); margin-top: 0;">ساره عاطف</h2>
+        <p><b>أستاذة بالأكاديمية</b></p>
+        <p style="line-height: 1.8; color: #555;">أكاديمية دار القرآن متخصصة في تبسيط العلوم الشرعية بأسلوب عصري يجمع بين الأصالة والتجديد، لنسهل على الجميع فهم الدين الصحيح.</p>
+    </div>
+</body>
+</html>
