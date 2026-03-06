@@ -5,13 +5,11 @@
     <title>باقات الاشتراك - دار القرآن</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/png" href="logo512.png">
-    <link rel="manifest" href="manifest.json">
     <style>
         :root { --primary-gold: #c99a00; --dark-bg: #1a1a1a; --offer-red: #e74c3c; }
         body { font-family: 'Cairo', sans-serif; background-color: #f4f4f4; margin: 0; text-align: center; color: #333; }
         
-        /* القوائم الذكية */
+        /* القوائم الموحدة */
         .mobile-nav, .desktop-sidebar { display: none; }
         @media (max-width: 600px) {
             .mobile-nav { display: flex; position: fixed; bottom: 0; left: 0; right: 0; background: var(--dark-bg); height: 65px; justify-content: space-around; align-items: center; border-top: 2px solid var(--primary-gold); z-index: 1000; }
@@ -24,28 +22,18 @@
             body { margin-left: 240px; }
         }
 
-        /* كارت الاشتراك */
-        .join-container { padding: 40px 20px; }
         .pricing-card {
             background: white; border-radius: 30px; box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-            max-width: 450px; margin: auto; overflow: hidden; border: 1px solid #eee;
+            max-width: 450px; margin: 40px auto; overflow: hidden;
         }
-        .card-header { background: var(--dark-bg); color: var(--primary-gold); padding: 25px; font-size: 22px; font-weight: 900; }
-        .price-section { padding: 30px; background: #fffdf5; }
-        .old-price { text-decoration: line-through; color: #999; font-size: 20px; display: block; }
-        .current-price { color: var(--offer-red); font-size: 55px; font-weight: 900; margin: 5px 0; }
+        .card-header { background: var(--dark-bg); color: var(--primary-gold); padding: 25px; font-weight: 900; font-size: 22px; }
+        .price-section { padding: 30px; }
+        .old-price { text-decoration: line-through; color: #999; font-size: 22px; display: block; }
+        .current-price { color: var(--offer-red); font-size: 55px; font-weight: 900; margin: 10px 0; }
         
-        .offer-timer {
-            background: #fff0f0; color: #c0392b; padding: 12px; border-radius: 15px;
-            font-weight: bold; margin: 15px 20px; border: 1px dashed #e74c3c;
-        }
+        .timer-box { background: #fff0f0; color: #c0392b; padding: 15px; margin: 10px 25px; border-radius: 15px; font-weight: bold; border: 1px dashed #e74c3c; }
 
-        .action-buttons { padding: 20px 30px 40px; }
-        .btn {
-            display: flex; align-items: center; justify-content: center; gap: 10px;
-            padding: 18px; border-radius: 50px; margin-bottom: 15px;
-            text-decoration: none; font-weight: 900; font-size: 16px; transition: 0.3s;
-        }
+        .btn { display: flex; align-items: center; justify-content: center; gap: 10px; padding: 18px; border-radius: 50px; margin: 15px 25px; text-decoration: none; font-weight: 900; font-size: 18px; transition: 0.3s; }
         .btn-cash { background: var(--offer-red); color: white; box-shadow: 0 5px 15px rgba(231, 76, 60, 0.3); }
         .btn-confirm { background: #0088cc; color: white; box-shadow: 0 5px 15px rgba(0, 136, 204, 0.3); }
         .btn:hover { transform: translateY(-3px); filter: brightness(1.1); }
@@ -60,69 +48,52 @@
         <a href="contact.html">📞<span>تواصل</span></a>
     </nav>
 
-    <nav class="desktop-sidebar">
-        <div style="text-align: center; margin-bottom: 20px;"><img src="logo512.png" width="80"></div>
-        <a href="index.html">الصفحة الرئيسية</a>
-        <a href="Join.html" style="background: var(--primary-gold); color: black;">باقات الاشتراك</a>
-        <a href="about.html">عن الأكاديمية</a>
-        <a href="contact.html">تواصل معنا</a>
-    </nav>
+    <div class="pricing-card">
+        <div class="card-header">اشتراك شهر مارس 🌙</div>
+        <div class="price-section">
+            <span id="old-price" class="old-price">السعر الأصلي: 150 جنيه</span>
+            <div id="price-val" class="current-price">100 جنيه</div>
+            <p style="color: #666;">عرض خاص من 6 مارس إلى 14 مارس</p>
+        </div>
 
-    <div class="join-container">
-        <h2 style="font-weight: 900; margin-bottom: 30px;">اختر خطة التعلم المناسبة</h2>
+        <div id="timer-text" class="timer-box">🔥 العرض ساري الآن!</div>
 
-        <div class="pricing-card">
-            <div class="card-header">دورة الفقه الميسر - شهر مارس</div>
-            
-            <div class="price-section">
-                <span class="old-price" id="old-price">السعر الأصلي: 150 جنيه</span>
-                <div class="current-price" id="current-price">100 جنيه</div>
-                <p style="color: #666; font-size: 14px;">اشتراك كامل لمدة شهر شامل الدروس والاختبارات</p>
-            </div>
-
-            <div id="offer-tag" class="offer-timer">⏳ جاري فحص العرض...</div>
-
-            <div class="action-buttons">
-                <a href="tel:*9*7*01124313665*100%23" class="btn btn-cash">
-                    💳 اضغط لتحويل الاشتراك (فودافون كاش)
-                </a>
-                <a href="https://t.me/+201124313665" class="btn btn-confirm">
-                    📱 أرسل صورة الإيصال لتفعيل حسابك
-                </a>
-            </div>
+        <div style="padding-bottom: 30px;">
+            <a href="tel:*9*7*01006971652*100%23" class="btn btn-cash">
+                💳 اضغط لتحويل 100ج كاش
+            </a>
+            <a href="https://t.me/+201144546621" class="btn btn-confirm">
+                📱 أرسل الإيصال لتفعيل حسابك
+            </a>
         </div>
     </div>
 
     <script>
-        function checkOffer() {
-            // التواريخ المحددة: من 6 مارس إلى 14 مارس 2026
-            const startDate = new Date("March 6, 2026 00:00:00");
-            const endDate = new Date("March 14, 2026 23:59:59");
+        function updateOffer() {
             const now = new Date();
+            const start = new Date("March 6, 2026 00:00:00");
+            const end = new Date("March 14, 2026 23:59:59");
+            
+            const priceVal = document.getElementById('price-val');
+            const oldPrice = document.getElementById('old-price');
+            const timerText = document.getElementById('timer-text');
 
-            const timerTag = document.getElementById('offer-tag');
-            const priceTag = document.getElementById('current-price');
-            const oldPriceTag = document.getElementById('old-price');
-
-            if (now < startDate) {
-                timerTag.innerHTML = "📅 ترقبوا! عرض خصم مارس يبدأ يوم 6 مارس";
-                timerTag.style.background = "#fff3cd"; timerTag.style.color = "#856404";
-                priceTag.innerText = "150 جنيه";
-                oldPriceTag.style.display = "none";
-            } else if (now >= startDate && now <= endDate) {
-                const diff = endDate - now;
-                const days = Math.ceil(diff / (1000 * 60 * 60 * 24));
-                timerTag.innerHTML = "🔥 عرض محدود! متبقي " + days + " أيام على انتهاء الخصم";
-                priceTag.innerText = "100 جنيه";
-                oldPriceTag.style.display = "block";
+            if (now >= start && now <= end) {
+                // وقت العرض
+                priceVal.innerText = "100 جنيه";
+                oldPrice.style.display = "block";
+                timerText.innerText = "🔥 العرض ينتهي يوم 14 مارس!";
             } else {
-                timerTag.innerHTML = "⚠️ انتهى عرض الخصم الحالي";
-                timerTag.style.background = "#eee"; timerTag.style.color = "#777";
-                priceTag.innerText = "150 جنيه";
-                oldPriceTag.style.display = "none";
+                // خارج وقت العرض
+                priceVal.innerText = "150 جنيه";
+                oldPrice.style.display = "none";
+                timerText.innerText = "انتظروا عروضنا القادمة قريباً";
+                timerText.style.background = "#eee";
+                timerText.style.color = "#777";
+                timerText.style.borderColor = "#ccc";
             }
         }
-        window.onload = checkOffer;
+        updateOffer();
     </script>
 </body>
 </html>
