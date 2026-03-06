@@ -1,64 +1,102 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <title>أكاديمية دار القرآن - الرئيسية</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="manifest" href="manifest.json">
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
-  <style>
-    :root { --primary-gold: #c99a00; --dark-bg: #1a1a1a; }
-    body { margin: 0; font-family: 'Cairo', sans-serif; background-color: #ffffff; color: #333; }
-    
-    /* القوائم - مخفية افتراضياً */
-    .mobile-nav, .desktop-sidebar { display: none; }
+    <meta charset="UTF-8">
+    <title>أكاديمية دار القرآن - الرئيسية</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="manifest" href="manifest.json">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root { --primary-gold: #c99a00; --dark-bg: #1a1a1a; --light-gold: #ffecb3; }
+        body { margin: 0; font-family: 'Cairo', sans-serif; background-color: #fafafa; color: #333; overflow-x: hidden; }
+        
+        /* القوائم الذكية */
+        .mobile-nav, .desktop-sidebar { display: none; }
 
-    /* تنسيق الموبايل (شريط سفلي) */
-    @media (max-width: 600px) {
-        .mobile-nav { display: flex; position: fixed; bottom: 0; left: 0; right: 0; background: var(--dark-bg); height: 65px; justify-content: space-around; align-items: center; border-top: 2px solid var(--primary-gold); z-index: 1000; }
-        .mobile-nav a { color: white; text-decoration: none; font-size: 12px; display: flex; flex-direction: column; align-items: center; }
-        body { padding-bottom: 70px; }
-    }
+        @media (max-width: 600px) {
+            .mobile-nav { display: flex; position: fixed; bottom: 0; left: 0; right: 0; background: var(--dark-bg); height: 65px; justify-content: space-around; align-items: center; border-top: 2px solid var(--primary-gold); z-index: 1000; }
+            .mobile-nav a { color: white; text-decoration: none; font-size: 12px; display: flex; flex-direction: column; align-items: center; }
+            body { padding-bottom: 70px; }
+        }
 
-    /* تنسيق الكمبيوتر (شريط جانبي شمال) */
-    @media (min-width: 601px) {
-        .desktop-sidebar { display: block; position: fixed; left: 0; top: 0; bottom: 0; width: 220px; background: var(--dark-bg); border-right: 4px solid var(--primary-gold); padding-top: 40px; z-index: 1000; }
-        .desktop-sidebar a { display: block; color: white; padding: 15px 25px; text-decoration: none; border-bottom: 1px solid #333; text-align: right; }
-        .desktop-sidebar a:hover { background: var(--primary-gold); color: black; }
-        body { margin-left: 220px; }
-    }
+        @media (min-width: 601px) {
+            .desktop-sidebar { display: block; position: fixed; left: 0; top: 0; bottom: 0; width: 240px; background: var(--dark-bg); border-right: 4px solid var(--primary-gold); padding-top: 40px; z-index: 1000; }
+            .desktop-sidebar a { display: block; color: white; padding: 15px 25px; text-decoration: none; border-bottom: 1px solid #333; text-align: right; transition: 0.3s; }
+            .desktop-sidebar a:hover { background: var(--primary-gold); color: black; padding-right: 35px; }
+            body { margin-left: 240px; }
+        }
 
-    .main-content { text-align: center; padding: 80px 20px; }
-    h1 { color: var(--primary-gold); font-size: 40px; font-weight: 900; }
-  </style>
+        /* الجزء الرئيسي (Hero Section) */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1584281723351-931f6d3f00e5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover; background-position: center;
+            height: 450px; display: flex; flex-direction: column; justify-content: center; align-items: center; color: white; text-align: center; padding: 20px;
+        }
+        .hero img { width: 100px; margin-bottom: 20px; filter: drop-shadow(0 0 10px var(--primary-gold)); }
+        .hero h1 { font-size: clamp(30px, 6vw, 50px); margin: 0; color: var(--primary-gold); text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
+        .hero p { font-size: 20px; max-width: 600px; margin: 15px 0 30px; }
+
+        .btn-main {
+            background: var(--primary-gold); color: black; padding: 15px 40px; border-radius: 50px; text-decoration: none; font-weight: 900; font-size: 18px; box-shadow: 0 5px 15px rgba(201, 154, 0, 0.4); transition: 0.3s;
+        }
+        .btn-main:hover { transform: scale(1.05); background: white; }
+
+        /* مميزات الأكاديمية */
+        .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; padding: 50px 20px; max-width: 1000px; margin: auto; }
+        .f-card { background: white; padding: 30px; border-radius: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); border-top: 5px solid var(--primary-gold); }
+        .f-card h3 { color: var(--dark-bg); margin-top: 0; }
+        .f-card p { color: #666; font-size: 15px; line-height: 1.6; }
+
+        footer { background: var(--dark-bg); color: #888; padding: 20px; font-size: 14px; }
+    </style>
 </head>
 <body>
 
-  <nav class="mobile-nav">
-    <a href="index.html">🏠<span>الرئيسية</span></a>
-    <a href="Join.html">🎯<span>الاشتراك</span></a>
-    <a href="about.html">📖<span>من نحن</span></a>
-    <a href="contact.html">📞<span>تواصل</span></a>
-  </nav>
+    <nav class="mobile-nav">
+        <a href="index.html" style="color: var(--primary-gold);">🏠<span>الرئيسية</span></a>
+        <a href="Join.html">🎯<span>الاشتراك</span></a>
+        <a href="about.html">📖<span>من نحن</span></a>
+        <a href="contact.html">📞<span>تواصل</span></a>
+    </nav>
 
-  <nav class="desktop-sidebar">
-    <div style="text-align: center; margin-bottom: 20px;"><img src="logo512.png" width="70"></div>
-    <a href="index.html">الصفحة الرئيسية</a>
-    <a href="Join.html">باقات الاشتراك</a>
-    <a href="about.html">عن الأكاديمية</a>
-    <a href="contact.html">تواصل معنا</a>
-  </nav>
+    <nav class="desktop-sidebar">
+        <div style="text-align: center; margin-bottom: 20px;"><img src="logo512.png" width="80"></div>
+        <a href="index.html" style="background: var(--primary-gold); color: black;">الصفحة الرئيسية</a>
+        <a href="Join.html">باقات الاشتراك</a>
+        <a href="about.html">عن الأكاديمية</a>
+        <a href="contact.html">تواصل معنا</a>
+    </nav>
 
-  <main class="main-content">
-    <img src="logo512.png" width="120">
-    <h1>مرحبا بكم في دار القرآن</h1>
-    <p style="font-size: 20px; color: #666;">تعلم أصول دينك وفقهه بأسلوب ميسر</p>
-  </main>
+    <section class="hero">
+        <img src="logo512.png" alt="Logo">
+        <h1>أكاديمية دار القرآن</h1>
+        <p>رحلتك نحو فهم الفقه والعلوم الشرعية بأسلوب عصري وميسر</p>
+        <a href="Join.html" class="btn-main">ابدأ التعلم الآن</a>
+    </section>
 
-  <script>
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', () => { navigator.serviceWorker.register('sw.js'); });
-    }
-  </script>
+    <section class="features">
+        <div class="f-card">
+            <h3>📖 منهج منضبط</h3>
+            <p>ندرس الفقه من أصوله الصحيحة بأسلوب يناسب المبتدئين والمتخصصين.</p>
+        </div>
+        <div class="f-card">
+            <h3>📱 تطبيق تفاعلي</h3>
+            <p>تواصل مباشر مع المعلمين وحضور حلقات البث من أي مكان في العالم.</p>
+        </div>
+        <div class="f-card">
+            <h3>📜 شهادات إتمام</h3>
+            <p>احصل على شهادة معتمدة من الأكاديمية عند اجتيازك اختبارات الدورة.</p>
+        </div>
+    </section>
+
+    <footer>
+        &copy; جميع الحقوق محفوظة - أكاديمية دار القرآن 2026
+    </footer>
+
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => { navigator.serviceWorker.register('sw.js'); });
+      }
+    </script>
 </body>
 </html>
