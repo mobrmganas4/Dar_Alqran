@@ -2,59 +2,118 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <title>تواصل معنا - دار القرآن</title>
+    <title>تواصل معنا - أكاديمية دار القرآن</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="logo512.png">
     <link rel="manifest" href="manifest.json">
     <style>
-        :root { --primary-gold: #c99a00; --dark-bg: #1a1a1a; }
-        body { font-family: 'Cairo', sans-serif; background-color: #fffdf5; margin: 0; text-align: center; }
+        :root { --primary-gold: #c99a00; --dark-bg: #1a1a1a; --tg-blue: #0088cc; }
+        body { font-family: 'Cairo', sans-serif; background-color: #f9f9f9; margin: 0; text-align: center; color: #333; }
         
-        /* القوائم الذكية */
+        /* القوائم الذكية الموحدة */
         .mobile-nav, .desktop-sidebar { display: none; }
-
         @media (max-width: 600px) {
             .mobile-nav { display: flex; position: fixed; bottom: 0; left: 0; right: 0; background: var(--dark-bg); height: 65px; justify-content: space-around; align-items: center; border-top: 2px solid var(--primary-gold); z-index: 1000; }
             .mobile-nav a { color: white; text-decoration: none; font-size: 12px; display: flex; flex-direction: column; align-items: center; }
             body { padding-bottom: 80px; }
         }
-
         @media (min-width: 601px) {
-            .desktop-sidebar { display: block; position: fixed; left: 0; top: 0; bottom: 0; width: 220px; background: var(--dark-bg); border-right: 4px solid var(--primary-gold); padding-top: 40px; z-index: 1000; }
+            .desktop-sidebar { display: block; position: fixed; left: 0; top: 0; bottom: 0; width: 240px; background: var(--dark-bg); border-right: 4px solid var(--primary-gold); padding-top: 40px; z-index: 1000; }
             .desktop-sidebar a { display: block; color: white; padding: 15px 25px; text-decoration: none; border-bottom: 1px solid #333; text-align: right; }
-            .desktop-sidebar a:hover { background: var(--primary-gold); color: black; }
-            body { margin-left: 220px; }
+            body { margin-left: 240px; }
         }
 
-        .card { background: white; padding: 35px; border-radius: 25px; max-width: 450px; margin: 40px auto; box-shadow: 0 10px 25px rgba(0,0,0,0.05); }
-        .contact-link { font-size: 24px; color: #0088cc; text-decoration: none; font-weight: 900; display: block; margin: 15px 0; }
-        .btn-black { display: block; background: #000; color: #fff; padding: 15px; border-radius: 50px; text-decoration: none; font-weight: bold; transition: 0.3s; }
-        .btn-black:hover { opacity: 0.8; }
+        /* حاوية محتوى التواصل */
+        .contact-wrapper { padding: 40px 20px; max-width: 600px; margin: auto; }
+        
+        /* صورة اللوجو الأساسية */
+        .main-logo-contact {
+            width: 150px;
+            margin-bottom: 20px;
+            filter: drop-shadow(0 10px 15px rgba(0,0,0,0.1));
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .contact-card {
+            background: white; padding: 40px 30px; border-radius: 35px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.06);
+            border: 1px solid #eee;
+        }
+
+        .section-title { color: var(--primary-gold); font-weight: 900; font-size: 28px; margin-bottom: 10px; }
+        .section-desc { color: #777; margin-bottom: 30px; font-size: 15px; }
+
+        /* الأزرار */
+        .contact-btn {
+            display: flex; align-items: center; justify-content: center; gap: 12px;
+            padding: 20px; border-radius: 20px; text-decoration: none;
+            font-weight: 900; font-size: 18px; margin-bottom: 15px;
+            transition: 0.3s;
+        }
+
+        .btn-tg-official { background: var(--tg-blue); color: white; }
+        .btn-tg-admin { background: #333; color: white; }
+        
+        .contact-btn:hover { transform: scale(1.02); opacity: 0.9; }
+        
+        .phone-display {
+            font-size: 24px; color: var(--dark-bg); font-weight: 900;
+            background: #f1f1f1; padding: 15px; border-radius: 15px;
+            display: block; margin: 10px 0 25px; letter-spacing: 1px;
+        }
     </style>
 </head>
 <body>
+
     <nav class="mobile-nav">
         <a href="index.html">🏠<span>الرئيسية</span></a>
         <a href="Join.html">🎯<span>الاشتراك</span></a>
         <a href="about.html">📖<span>من نحن</span></a>
         <a href="contact.html" style="color: var(--primary-gold);">📞<span>تواصل</span></a>
     </nav>
+
     <nav class="desktop-sidebar">
-        <div style="text-align: center; margin-bottom: 20px;"><img src="logo512.png" width="70"></div>
+        <div style="text-align: center; margin-bottom: 20px;"><img src="logo512.png" width="80"></div>
         <a href="index.html">الصفحة الرئيسية</a>
         <a href="Join.html">باقات الاشتراك</a>
         <a href="about.html">عن الأكاديمية</a>
         <a href="contact.html" style="background: var(--primary-gold); color: black;">تواصل معنا</a>
     </nav>
 
-    <h2 style="color: var(--primary-gold); margin-top: 40px;">تواصل معنا</h2>
-    <div class="card">
-        <p>للتواصل المباشر والاستفسارات:</p>
-        <a href="https://t.me/+201144546621" class="contact-link">01144546621</a>
-        <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;">
-        <p>لديك اقتراح لتحسين الأكاديمية؟</p>
-        <a href="https://t.me/go_work_mobermg" class="btn-black">أرسل اقتراحك الآن</a>
+    <div class="contact-wrapper">
+        <img src="logo512.png" alt="Logo" class="main-logo-contact">
+        
+        <div class="contact-card">
+            <h1 class="section-title">تواصل معنا</h1>
+            <p class="section-desc">يسعدنا استقبال استفساراتكم واقتراحاتكم في أي وقت</p>
+
+            <p style="font-weight: bold; margin-bottom: 5px;">رقم التواصل المباشر (تليجرام)</p>
+            <span class="phone-display">01144546621</span>
+
+            <a href="https://t.me/+201144546621" class="contact-btn btn-tg-official">
+                ✈️ مراسلة الإدارة عبر تليجرام
+            </a>
+
+            <div style="margin: 30px 0; border-top: 1px solid #eee; position: relative;">
+                <span style="position: absolute; top: -12px; background: white; padding: 0 15px; right: 50%; transform: translateX(50%); color: #999; font-size: 13px;">أو</span>
+            </div>
+
+            <p style="font-weight: bold; margin-bottom: 15px;">لديك اقتراح تقني للموقع؟</p>
+            <a href="https://t.me/go_work_mobermg" class="contact-btn btn-tg-admin">
+                👨‍💻 تواصل مع مطور التطبيق
+            </a>
+        </div>
     </div>
+
+    <footer style="margin-top: 30px; padding-bottom: 40px; color: #bbb; font-size: 12px;">
+        أكاديمية دار القرآن - تواصلك يسعدنا
+    </footer>
+
 </body>
 </html>
