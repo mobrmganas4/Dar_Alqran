@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>أكاديمية دار القرآن</title>
+    
+    <link rel="icon" type="image/png" href="logo512.png">
+    <link rel="apple-touch-icon" href="logo512.png">
+    <link rel="manifest" href="manifest.json">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        :root { --gold: #c99a00; --dark: #1a1a1a; --offer-red: #e74c3c; }
+        * { box-sizing: border-box; transition: 0.3s; }
+        body { font-family: 'Cairo', sans-serif; margin: 0; background: #fafafa; overflow-x: hidden; }
+
+        /* شريط الحالة العلوي */
+        .status-bar {
+            background: #000; color: white; padding: 5px 15px;
+            display: flex; justify-content: space-between; font-size: 12px;
+            position: sticky; top: 0; z-index: 2000;
+        }
+
+        /* تنسيق الكمبيوتر (Desktop) */
+        @media (min-width: 601px) {
+            .desktop-nav {
+                position: fixed; right: 0; top: 25px; bottom: 0; width: 220px;
+                background: var(--dark); border-left: 3px solid var(--gold);
+                display: flex; flex-direction: column; align-items: center; padding-top: 30px;
+            }
+            .desktop-nav img { width: 110px; height: 110px; border-radius: 15px; } /* أيقونة اللوجو الرئيسية */
+            .desktop-nav .brand-name { color: var(--gold); font-weight: 900; margin: 15px 0 30px 0; font-size: 22px; }
+            .desktop-nav button {
+                background: transparent; color: white; border: none; width: 100%;
+                padding: 15px; cursor: pointer; font-family: 'Cairo'; font-size: 16px;
+                border-bottom: 1px solid #333; display: flex; align-items: center; justify-content: center; gap: 10px;
+            }
+            .desktop-nav button:hover, .active-btn { background: var(--gold) !important; color: black !important; font-weight: bold; }
+            main { margin-right: 220px; padding: 40px; }
+            .mobile-nav, .mobile-header { display: none; }
+        }
+
+        /* تنسيق الموبايل (Mobile) */
+        @media (max-width: 600px) {
+            .desktop-nav { display: none; }
+            .mobile-header { background: white; padding: 15px; text-align: center; border-bottom: 2px solid var(--gold); box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+            .mobile-header img { width: 70px; border-radius: 10px; }
+            .mobile-header h2 { margin: 5px 0 0 0; font-size: 18px; color: var(--dark); }
+            
+            .mobile-nav {
+                position: fixed; bottom: 0; left: 0; right: 0; height: 70px;
+                background: var(--dark); display: flex; justify-content: space-around;
+                align-items: center; border-top: 2px solid var(--gold); z-index: 1000;
+            }
+            .mobile-nav button {
+                background: transparent; border: none; color: white; font-size: 11px;
+                display: flex; flex-direction: column; align-items: center; font-family: 'Cairo'; gap: 4px;
+            }
+            .nav-icon { font-size: 20px; } /* أيقونات القائمة */
+            .active-mob { color: var(--gold) !important; }
+            .active-mob .nav-icon { transform: scale(1.2); }
+            main { padding: 15px; padding-bottom: 90px; }
+        }
+
+        /* تصميم الكروت والمحتوى */
+        .page-section { display: none; animation: fadeIn 0.4s ease-in-out; }
+        .active-section { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        .card { background: white; border-radius: 20px; padding: 25px; box-shadow: 0 8px 20px rgba(0,0,0,0.06); margin-bottom: 20px; border-bottom: 4px solid var(--gold); text-align: center; }
+        .btn-action { background: var(--gold); color: black; padding: 14px 20px; border-radius: 50px; text-decoration: none; font-weight: 900; display: inline-flex; align-items: center; justify-content: center; gap: 10px; margin-top: 10px; cursor: pointer; border: none; font-family: 'Cairo'; width: 100%; max-width: 300px; }
+        .timer-box { background: #fff0f0; color: var(--offer-red); padding: 15px; margin: 15px 0; border-radius: 15px; font-weight: bold; border: 1px dashed var(--offer-red); font-size: 14px; }
+    </style>
+</head>
+<body>
+
+    <div class="status-bar">
+        <span id="current-time">00:00</span>
+        <span id="battery-level">🔋 --%</span>
+    </div>
+
+    <nav class="desktop-nav">
+        <img src="logo512.png" alt="Logo">
+        <div class="brand-name">دار القرآن</div>
+        <button onclick="showPage('home')" id="btn-home-d">🏠 الرئيسية</button>
+        <button onclick="showPage('join')" id="btn-join-d">🎯 انضمام للحلقة</button>
+        <button onclick="showPage('about')" id="btn-about-d">📖 من نحن</button>
+        <button onclick="showPage('contact')" id="btn-contact-d">📞 تواصل معنا</button>
+    </nav>
+
+    <header class="mobile-header">
+        <img src="logo512.png" alt="Logo">
+        <h2>دار القرآن</h2>
+    </header>
+
+    <nav class="mobile-nav">
+        <button onclick="showPage('home')" id="btn-home-m"><span class="nav-icon">🏠</span><span>الرئيسية</span></button>
+        <button onclick="showPage('join')" id="btn-join-m"><span class="nav-icon">🎯</span><span>الاشتراك</span></button>
+        <button onclick="showPage('about')" id="btn-about-m"><span class="nav-icon">📖</span><span>من نحن</span></button>
+        <button onclick="showPage('contact')" id="btn-contact-m"><span class="nav-icon">📞</span><span>تواصل</span></button>
+    </nav>
+
+    <main>
+        <section id="home" class="page-section active-section">
+            <div class="card">
+                <h1 style="color: var(--gold);">أكاديمية دار القرآن</h1>
+                <p>تعلم الفقه والعلوم الشرعية بأسلوب عصري ومبسط</p>
+                <img src="logo512.png" style="width: 160px; height: 160px; margin: 10px auto; display: block; border-radius: 20px;" alt="Icon">
+                <button class="btn-action" onclick="showPage('join')">✨ ابدأ رحلتك التعليمية</button>
+            </div>
+        </section>
+
+        <section id="join" class="page-section">
+            <div class="card">
+                <h2 id="offer-title">🎁 عرض شهر مارس</h2>
+                <div id="price-container">
+                    <span id="old-price" style="text-decoration: line-through; color: #999;">السعر: 150 جنيه</span>
+                    <h1 id="current-price" style="font-size: 45px; color: var(--offer-red); margin: 5px 0;">100 جنيه</h1>
+                </div>
+                <div id="timer-text" class="timer-box">يتم فحص العرض...</div>
+                
+                <p>تحويل فودافون كاش: <br><b style="font-size: 22px; letter-spacing: 1px;">01006971652</b></p>
+                <a href="tel:*9*7*01006971652*100%23" class="btn-action" style="background: var(--offer-red); color: white;">💳 دفع 100ج كاش الآن</a>
+                
+                <p style="margin-top: 25px; font-size: 14px;">أرسل الإيصال لتفعيل حسابك:</p>
+                <a href="https://t.me/+201144546621" class="btn-action" style="background: #0088cc; color: white;">✈️ إرسال عبر تليجرام</a>
+            </div>
+        </section>
+
+        <section id="about" class="page-section">
+            <div class="card" style="text-align: right;">
+                <h2 style="color: var(--gold); text-align: center;">حول الأكاديمية</h2>
+                <p>🔹 <b>الرسالة:</b> تبسيط فقه العبادات والمعاملات لكل مسلم.</p>
+                <p>🔹 <b>المشرف:</b> أ. ساره عاطف.</p>
+                <p>🔹 <b>طريقة الدراسة:</b> دروس أونلاين مسجلة ومباشرة مع متابعة مستمرة.</p>
+            </div>
+        </section>
+
+        <section id="contact" class="page-section">
+            <div class="card">
+                <h2 style="color: var(--gold);">مركز المساعدة</h2>
+                <a href="https://t.me/+201144546621" class="btn-action" style="background: #0088cc; color: white;">✈️ مراسلة الإدارة</a>
+                <div style="margin: 20px 0; border-top: 1px solid #eee;"></div>
+                <p style="font-size: 13px;">لديك فكرة لتطوير الموقع أو أيقوناته؟</p>
+                <a href="https://t.me/go_work_mobermg" class="btn-action" style="background: #333; color: white;">🛠️ تواصل مع المطور</a>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // التنقل بين الصفحات
+        function showPage(pageId) {
+            document.querySelectorAll('.page-section').forEach(sec => sec.classList.remove('active-section'));
+            document.getElementById(pageId).classList.add('active-section');
+            document.querySelectorAll('nav button').forEach(btn => btn.classList.remove('active-btn', 'active-mob'));
+            if(document.getElementById('btn-'+pageId+'-d')) document.getElementById('btn-'+pageId+'-d').classList.add('active-btn');
+            if(document.getElementById('btn-'+pageId+'-m')) document.getElementById('btn-'+pageId+'-m').classList.add('active-mob');
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        }
+
+        // تحديث الساعة
+        function updateClock() {
+            const now = new Date();
+            document.getElementById('current-time').innerText = now.getHours().toString().padStart(2, '0') + ":" + now.getMinutes().toString().padStart(2, '0');
+        }
+        setInterval(updateClock, 1000); updateClock();
+
+        // تحديث البطارية
+        if ('getBattery' in navigator) {
+            navigator.getBattery().then(battery => {
+                const update = () => document.getElementById('battery-level').innerText = "🔋 " + Math.round(battery.level * 100) + "%";
+                update(); battery.addEventListener('levelchange', update);
+            });
+        }
+
+        // منطق العداد (13 مارس - 20 مارس)
+        function checkOffer() {
+            const now = new Date();
+            const start = new Date("March 13, 2026 00:00:00");
+            const end = new Date("March 20, 2026 23:59:59");
+            const timerBox = document.getElementById('timer-text');
+            const priceVal = document.getElementById('current-price');
+            const oldPrice = document.getElementById('old-price');
+
+            if (now >= start && now <= end) {
+                timerBox.innerText = "⏳ العرض ينتهي في 20 مارس - سارع بالاشتراك!";
+                priceVal.innerText = "100 جنيه";
+                oldPrice.style.display = "inline";
+            } else if (now < start) {
+                timerBox.innerText = "🗓️ يبدأ الخصم (100ج) يوم 13 مارس";
+                priceVal.innerText = "150 جنيه";
+                oldPrice.style.display = "none";
+            } else {
+                timerBox.innerText = "انتهى وقت العرض الحالي";
+                priceVal.innerText = "150 جنيه";
+                oldPrice.style.display = "none";
+            }
+        }
+        checkOffer(); setInterval(checkOffer, 60000);
+
+        // تسجيل الـ Service Worker لضمان عمل الـ Icons عند عدم وجود إنترنت
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('sw.js');
+        }
+    </script>
+</body>
+</html>
