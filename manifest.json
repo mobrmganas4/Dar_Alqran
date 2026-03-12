@@ -3,7 +3,7 @@
   "short_name": "Dar Al-Quran",
   "description": "Academy for Quranic Studies",
   "start_url": "index.html",
-  "display": "fullscreen",
+  "display": "standalone",
   "orientation": "portrait",
   "background_color": "#ffffff",
   "theme_color": "#0d1b3e",
