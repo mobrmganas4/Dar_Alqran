@@ -1,27 +1,41 @@
-const cacheName = 'dar-al-quran-v1';
+const cacheName = 'dar-al-quran-v2';
+
 const assets = [
   '/',
   '/index.html',
-  '/logo512.png',
+  '/logo512-v2.png',
   '/manifest.json'
 ];
 
 // تثبيت السيرفس وركر
 self.addEventListener('install', evt => {
+  self.skipWaiting(); // مهم جدًا
+
   evt.waitUntil(
     caches.open(cacheName).then(cache => {
-      console.log('Caching shell assets');
-      cache.addAll(assets);
+      return cache.addAll(assets);
     })
   );
 });
 
 // تفعيل السيرفس وركر
 self.addEventListener('activate', evt => {
-  console.log('Service Worker activated');
+  evt.waitUntil(
+    caches.keys().then(keys => {
+      return Promise.all(
+        keys.map(key => {
+          if (key !== cacheName) {
+            return caches.delete(key); // يمسح القديم
+          }
+        })
+      );
+    })
+  );
+
+  clients.claim(); // يخلي الجديد يشتغل فورًا
 });
 
-// جلب البيانات (ضروري عشان الـ Install Prompt يظهر)
+// جلب البيانات
 self.addEventListener('fetch', evt => {
   evt.respondWith(
     caches.match(evt.request).then(cacheRes => {
