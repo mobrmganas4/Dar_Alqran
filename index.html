@@ -6,7 +6,6 @@
     <title>أكاديمية دار القرآن</title>
     
     <link rel="icon" type="image/png" href="logo512v2.png">
-    
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
     
     <style>
@@ -99,17 +98,62 @@
         </section>
 
         <section id="join" class="page-section">
-            </section>
-        
-        </main>
+            <div class="card">
+                <h2>نظام الاشتراك</h2>
+                <p>سجل معنا الآن في أكاديمية دار القرآن.</p>
+            </div>
+        </section>
+
+        <section id="social" class="page-section">
+            <div id="va-container" class="card">
+                <div class="loader-spinner"></div>
+                <p>جاري التحميل...</p>
+            </div>
+        </section>
+
+        <section id="about" class="page-section">
+            <div class="card">
+                <h2>من نحن</h2>
+                <p>أكاديمية متخصصة في العلوم الشرعية.</p>
+            </div>
+        </section>
+
+        <section id="contact" class="page-section">
+            <div class="card">
+                <h2>تواصل معنا</h2>
+                <p>يسعدنا تلقي استفساراتكم.</p>
+            </div>
+        </section>
+    </main>
 
     <script>
         function showPage(pageId) {
-            document.querySelectorAll('.page-section').forEach(sec => sec.classList.remove('active-section'));
-            document.getElementById(pageId).classList.add('active-section');
+            // إخفاء كل الصفحات
+            document.querySelectorAll('.page-section').forEach(sec => sec.style.display = 'none');
+            // إظهار الصفحة المطلوبة
+            document.getElementById(pageId).style.display = 'block';
+            
+            // تحديث الأزرار
+            document.querySelectorAll('nav button').forEach(btn => btn.classList.remove('active-btn', 'active-mob'));
+            const btnD = document.getElementById('btn-'+pageId+'-d');
+            const btnM = document.getElementById('btn-'+pageId+'-m');
+            if(btnD) btnD.classList.add('active-btn');
+            if(btnM) btnM.classList.add('active-mob');
+            
+            if(pageId === 'social') loadVaPage();
             window.scrollTo({top: 0, behavior: 'smooth'});
         }
-        // تم حذف كود الـ PWA و Service Worker
+
+        async function loadVaPage() {
+            const container = document.getElementById('va-container');
+            try {
+                const response = await fetch('va.html');
+                const html = await response.text();
+                container.innerHTML = html;
+            } catch (err) {
+                container.innerHTML = "<p>تعذر تحميل صفحة التواصل.</p>";
+            }
+        }
     </script>
 </body>
 </html>
